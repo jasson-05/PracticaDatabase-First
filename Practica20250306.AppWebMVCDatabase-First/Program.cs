@@ -1,7 +1,16 @@
+using Microsoft.EntityFrameworkCore;
+using Practica20250306.AppWebMVCDatabase_First.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<CatalogosDbContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("Conn"));
+});
+
 
 var app = builder.Build();
 
