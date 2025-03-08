@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Practica20250306.AppWebMVCDatabase_First.Models.Proveedore>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Proveedores</h1>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">Agregar proveedor</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Direccion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telefono)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Direccion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefono)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                <a asp-action="Edit"class="btn btn-success" asp-route-id="@item.Id">Editar</a> |
+                <a asp-action="Details" class="btn btn-secondary" asp-route-id="@item.Id">Detalle</a> |
+                <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.Id">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
